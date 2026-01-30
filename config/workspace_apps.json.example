@@ -1,0 +1,6 @@
+{
+  "workspaces": {
+    "0": ["firefox"],
+    "1": ["spotify", "slack"]
+  }
+}

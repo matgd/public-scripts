@@ -16,7 +16,7 @@ if [[ -z $DOCKER_CONT ]]; then
 fi
 
 TEMPF=$(mktemp)
-mv "$TEMPF" "$TEPMF".log
+mv "$TEMPF" "$TEMPF".log
 TEMPF="$TEMPF".log
 
 # Get logs
