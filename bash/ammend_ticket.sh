@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # check if branch_to_ticket.sh in path exists
-if ! command -v branch_to_ticket.sh &> /dev/null
+if ! command -v branch_to_ticket &> /dev/null
 then
-    echo "branch_to_ticket.sh could not be found in PATH"
+    echo "branch_to_ticket could not be found in PATH"
     exit 1
 fi
 
-TICKET_ID=$(branch_to_ticket.sh)
+TICKET_ID=$(branch_to_ticket)
 if [ -z "$TICKET_ID" ]; then
     echo "No ticket ID found for the current branch."
     exit 1
