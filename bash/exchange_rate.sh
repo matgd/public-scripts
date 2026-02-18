@@ -22,8 +22,8 @@ function help() {
     echo "Environment Variables:"
     echo "  XDG_CACHE_HOME       Directory for cache files (default: \$HOME/. cache)"
     echo "  CACHED_FILE          Path to the cached exchange rate file (default: \$XDG_CACHE_HOME/exchange_rate.<provider>.<from_currency>.<to_currency>.json)"
-    echo "  CACHE_TTL_SECONDS    Time-to-live for the cache in seconds (default: 18000, i.e., 5 hours)"
-    echo "  QUIET_CURL           If set to true, suppresses curl output (default: true)"
+    echo "  CACHE_TTL_SECONDS    Time-to-live for the cache in seconds (default: 43200, i.e., 12 hours)"
+    echo "  QUIET                If set to true, suppresses output (default: true)"
 }
 
 if [ "$#" -lt 2 ]; then
@@ -49,11 +49,11 @@ fi
 
 XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 CACHED_FILE="${CACHED_FILE:-$XDG_CACHE_HOME/exchange_rate.$PROVIDER.$FROM_CURRENCY.$TO_CURRENCY.json}"
-CACHE_TTL_SECONDS="${CACHE_TTL_SECONDS:-18000}"  # 5 hours
-QUIET_CURL="${QUIET_CURL:-true}"
+CACHE_TTL_SECONDS="${CACHE_TTL_SECONDS:-43200}"  # 12 hours
+QUIET="${QUIET:-true}"
 
 
-QUIET=$QUIET_CURL cached_curl \
+QUIET=$QUIET cached_curl \
   "$URL" \
   "$CACHE_TTL_SECONDS" \
   "$CACHED_FILE" \
