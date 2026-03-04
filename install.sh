@@ -75,6 +75,21 @@ if [[ -d "$BASH_SRC_DIR" ]]; then
 
     success "installed $NAME"
   done
+
+  # Install bash lib/ (source-able helpers like colors)
+  if [[ -d "$BASH_SRC_DIR/lib" ]]; then
+    info "Installing Bash lib files"
+    mkdir -p "$BIN_DIR/lib"
+
+    for FILE in "$BASH_SRC_DIR"/lib/*.sh; do
+      [[ -f "$FILE" ]] || continue
+
+      NAME="$(basename "$FILE")"
+      install -Dm644 "$FILE" "$BIN_DIR/lib/$NAME"
+
+      success "installed lib/$NAME"
+    done
+  fi
 fi
 
 # =========================
