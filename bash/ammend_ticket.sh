@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/lib/colors.source.sh"
+
 # check if branch_to_ticket.sh in path exists
 if ! command -v branch_to_ticket &> /dev/null
 then
-    echo "branch_to_ticket could not be found in PATH"
+    echo_red "branch_to_ticket could not be found in PATH"
     exit 1
 fi
 
 TICKET_ID=$(branch_to_ticket)
 if [ -z "$TICKET_ID" ]; then
-    echo "No ticket ID found for the current branch."
+    echo_red "No ticket ID found for the current branch."
     exit 1
 fi
 
@@ -23,7 +26,11 @@ fi
 
 git commit --amend -m "$TICKET_ID: $(git log -1 --pretty=%B)"
 
-echo "Message before amend: $MESSAGE_BEFORE"
-echo "Message after amend: $(git log -1 --pretty=%B)"
+echo "Message before amend:"
+echo_yellow "$MESSAGE_BEFORE"
+echo
+echo "Message after amend:"
+echo_yellow "$(git log -1 --pretty=%B)"
+echo
 echo "Commit message amended successfully."
 
