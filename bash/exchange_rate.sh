@@ -53,7 +53,7 @@ CACHE_TTL_SECONDS="${CACHE_TTL_SECONDS:-43200}"  # 12 hours
 QUIET="${QUIET:-true}"
 
 
-QUIET=$QUIET cached_curl \
+QUIET=$QUIET mg.cached_curl \
   "$URL" \
   "$CACHE_TTL_SECONDS" \
   "$CACHED_FILE" \

@@ -8,7 +8,7 @@ TAIL_LEN=10000
 if [[ -z $DOCKER_CONT ]]; then
     # Check if fzf is installed
     if ! command -v fzf &> /dev/null; then
-        echo "Usage: loged <docker_container_name>"
+        echo "Usage: mg.loged <docker_container_name>"
         exit 1
     fi
 

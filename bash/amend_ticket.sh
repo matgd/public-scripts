@@ -3,14 +3,14 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/lib/colors.source.sh"
 
-# check if branch_to_ticket.sh in path exists
-if ! command -v branch_to_ticket &> /dev/null
+# check if mg.branch_to_ticket in path exists
+if ! command -v mg.branch_to_ticket &> /dev/null
 then
-    echo_red "branch_to_ticket could not be found in PATH"
+    echo_red "mg.branch_to_ticket could not be found in PATH"
     exit 1
 fi
 
-TICKET_ID=$(branch_to_ticket)
+TICKET_ID=$(mg.branch_to_ticket)
 if [ -z "$TICKET_ID" ]; then
     echo_red "No ticket ID found for the current branch."
     exit 1

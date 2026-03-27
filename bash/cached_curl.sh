@@ -2,7 +2,7 @@
 set -euo pipefail
 
 f_usage() {
-  echo "Usage: CACHED_CURL <URL> <TTL_SECONDS> <CACHE_PATH> [curl args...]" >&2
+  echo "Usage: mg.cached_curl <URL> <TTL_SECONDS> <CACHE_PATH> [curl args...]" >&2
   exit 2
 }
 

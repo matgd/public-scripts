@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Help message
-HELP_MESSAGE="Usage: ./gafzf.sh
+HELP_MESSAGE="Usage: mg.gafzf
 Use TAB or Shift+TAB to select multiple files, and ENTER to confirm."
 
 # Check for --help argument

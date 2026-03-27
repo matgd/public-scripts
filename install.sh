@@ -54,10 +54,10 @@ if [[ -d "$GO_SRC_DIR" ]]; then
     echo -e "  ${BOLD}→${RESET} building ${NAME}"
     go build -trimpath -ldflags="-s -w" -o "$TMP_BIN" "$DIR"
 
-    install -Dm755 "$TMP_BIN" "$BIN_DIR/$NAME"
+    install -Dm755 "$TMP_BIN" "$BIN_DIR/mg.$NAME"
     rm "$TMP_BIN"
 
-    success "installed $NAME"
+    success "installed mg.$NAME"
   done
 fi
 
@@ -71,9 +71,9 @@ if [[ -d "$BASH_SRC_DIR" ]]; then
     [[ -f "$FILE" ]] || continue
 
     NAME="$(basename "$FILE" .sh)"
-    install -Dm755 "$FILE" "$BIN_DIR/$NAME"
+    install -Dm755 "$FILE" "$BIN_DIR/mg.$NAME"
 
-    success "installed $NAME"
+    success "installed mg.$NAME"
   done
 
   # Install bash lib/ (source-able helpers like colors)
@@ -102,9 +102,9 @@ if [[ -d "$PYTHON_SRC_DIR" ]]; then
     [[ -f "$FILE" ]] || continue
 
     NAME="$(basename "$FILE" .py)"
-    install -Dm755 "$FILE" "$BIN_DIR/$NAME"
+    install -Dm755 "$FILE" "$BIN_DIR/mg.$NAME"
 
-    success "installed $NAME"
+    success "installed mg.$NAME"
   done
 fi
 
