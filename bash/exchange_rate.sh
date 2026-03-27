@@ -19,11 +19,18 @@ function help() {
     echo "                    {emoji_jpy} - Emoji for JPY"
     echo " decimal_places   Optional number of decimal places to format the exchange rate"
     echo
+    echo "Examples:"
+    echo "  mg.exchange_rate USD PLN frankfurter"
+    echo "  mg.exchange_rate USD PLN er-api '{emoji_usd} {rate}zł' 2"
+    echo
     echo "Environment Variables:"
     echo "  XDG_CACHE_HOME       Directory for cache files (default: \$HOME/. cache)"
     echo "  CACHED_FILE          Path to the cached exchange rate file (default: \$XDG_CACHE_HOME/exchange_rate.<provider>.<from_currency>.<to_currency>.json)"
     echo "  CACHE_TTL_SECONDS    Time-to-live for the cache in seconds (default: 43200, i.e., 12 hours)"
     echo "  QUIET                If set to true, suppresses output (default: true)"
+    echo
+    echo "Depends on:"
+    echo "  mg.cached_curl"
 }
 
 if [ "$#" -lt 2 ]; then
